@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+</head>
+<body>
+
+    <div align="right">
+        <a href="/logout">Logout</a>
+    </div>
+
+    <h2>Agendamentos</h2>
+
+    <a href="evento/">
+        <button type="button">Novo Evento</button>
+    </a>
+    
+    <ul style="font-size: 18px">
+    {% for evento in eventos %}
+        <li>
+            {{ evento.titulo }} - {{ evento.get_data_evento}} 
+            ( <a href="evento/?id={{ evento.id }}">Editar</a> 
+            / <a href="evento/delete/{{ evento.id }}">Excluir</a> )
+        </li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
